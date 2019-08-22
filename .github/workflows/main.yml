@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Skip
+        uses: docker://meetup/action-skip-ci:20a0d1115f39ab153c83c6760656c42cce85fefd
       # https://github.com/actions/checkout
       - name: Checkout
         uses: actions/checkout@master
