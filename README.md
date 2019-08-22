@@ -37,4 +37,4 @@ jobs:
 ```
 
 
-Meetup Inc
+Meetup, Inc.
