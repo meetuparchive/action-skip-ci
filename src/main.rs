@@ -4,6 +4,9 @@ use regex::Regex;
 use serde::Deserialize;
 use std::{error::Error, process::exit};
 
+// https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#exit-codes-and-statuses
+const NEUTRAL: i32 = 78;
+
 // https://help.github.com/en/articles/virtual-environments-for-github-actions#default-environment-variables
 #[derive(Deserialize, Debug)]
 struct Config {
@@ -51,7 +54,7 @@ where
 
 fn main() -> Result<(), Box<dyn Error>> {
     if skip(envy::from_env()?)? {
-        exit(78)
+        exit(NEUTRAL)
     }
     Ok(())
 }
@@ -78,13 +81,11 @@ mod tests {
         }
         Ok(())
     }
-    
+
     #[test]
     fn message_filter_passes_on_default_cases() -> Result<(), Box<dyn Error>> {
         let default = default_pattern();
-        for messages in vec![
-            vec!["skip ci"],
-        ] {
+        for messages in vec![vec!["skip ci"]] {
             assert!(!message_filter(&default, messages));
         }
         Ok(())
