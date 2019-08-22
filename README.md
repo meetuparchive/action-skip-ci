@@ -14,8 +14,6 @@ jobs:
     steps:
     - name: Skip
       uses: docker://meetup/action-skip-ci:{docker-tag}
-        with:
-          pattern: "\\[meh]\\"
    - uses: actions/checkout@v1
    - run: echo 👍
 ```
@@ -32,6 +30,8 @@ jobs:
     steps:
     - name: Skip
       uses: docker://meetup/action-skip-ci:{docker-tag}
+      with:
+        pattern: "\\[meh]\\"
    - uses: actions/checkout@v1
    - run: echo 👍
 ```
