@@ -18,7 +18,7 @@ RUN rustup target add x86_64-unknown-linux-musl
 # COPY src src
 COPY . .
 RUN cargo build --target x86_64-unknown-linux-musl --release \
-	&& strip /app/target/x86_64-unknown-linux-musl/release/action-pagerduty
+	&& strip /app/target/x86_64-unknown-linux-musl/release/action-skip-ci
 
 FROM scratch
 
@@ -33,6 +33,6 @@ LABEL version="0.1.0" \
   "com.github.actions.color"="green"
 
 COPY --from=builder \
-	/app/target/x86_64-unknown-linux-musl/release/action-pagerduty \
+	/app/target/x86_64-unknown-linux-musl/release/action-skip-ci \
 	/action-skip-ci
 ENTRYPOINT ["/action-skip-ci"]
