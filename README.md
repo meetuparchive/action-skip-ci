@@ -2,6 +2,8 @@
 
 > ⏭️ some commits are worth passing on
 
+> **⚠️ Note:** To use this action, you must have access to the [GitHub Actions](https://github.com/features/actions) feature. GitHub Actions are currently only available in public beta. You can [apply for the GitHub Actions beta here](https://github.com/features/actions/signup/).
+
 ## 🤸 usage
 
 By default, action-skip-ci will bail on workflow if a push event contains commits with the patterns
@@ -34,7 +36,7 @@ jobs:
 ## 🖍️ customize
 
 You can customize the when to bail on commits using the `with.pattern` key
-to provide your own regex matcher. 
+to provide your own regex matcher.
 
 💡You can find more information on the supported regex syntax [here](https://docs.rs/regex/1.2.1/regex/#syntax)
 
